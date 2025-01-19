@@ -1,0 +1,24 @@
+---
+title: "Week 3 Assignment"
+output: ioslides_presentation
+author: "Pietro Gazzi"
+date: "1/19/2025"
+---
+## Plotly scatterplot example
+  
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7.5, fig.height=5, fig.align="center"}
+# Load necessary libraries
+library(plotly)
+
+# Create the plot
+plot_ly(mtcars, 
+        x = ~wt, 
+        y = ~mpg, 
+        color = ~factor(cyl),  # Color by the number of cylinders
+        type = 'scatter', 
+        mode = 'markers') %>%
+  layout(title = "Scatterplot of Weight vs MPG",
+         xaxis = list(title = "Weight (wt)"),
+         yaxis = list(title = "Miles per Gallon (mpg)"),
+         legend = list(title = list(text = 'Number of Cylinders')))
+```
