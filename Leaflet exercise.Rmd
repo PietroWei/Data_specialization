@@ -1,0 +1,32 @@
+---
+title: "Florence Landmarks"
+output: html_document
+---
+
+## `r paste("Date:", Sys.Date())`
+
+```{r, echo=FALSE}
+# Carica i pacchetti necessari
+library(leaflet)
+
+# Crea un data frame con i punti di interesse di Firenze
+florence_landmarks <- data.frame(
+  landmark = c("Duomo di Firenze", "Ponte Vecchio", "Uffizi Gallery", "Piazza della Signoria", "Boboli Gardens"),
+  lat = c(43.7734, 43.7687, 43.7688, 43.7692, 43.7629),
+  lon = c(11.2560, 11.2531, 11.2559, 11.2558, 11.2476),
+  description = c(
+    "Iconic cathedral with a magnificent dome by Brunelleschi.",
+    "Historic bridge lined with shops, spanning the Arno River.",
+    "World-famous art museum housing works by Michelangelo and Botticelli.",
+    "A bustling square featuring the Palazzo Vecchio and statues.",
+    "Expansive gardens offering stunning views and Renaissance sculptures."
+  )
+)
+
+# Crea la mappa Leaflet
+leaflet(florence_landmarks) %>%
+  addTiles() %>%
+  addMarkers(
+    ~lon, ~lat, 
+    popup = ~paste0("<b>", landmark, "</b><br>", description)
+  )
