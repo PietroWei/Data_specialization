@@ -1,0 +1,48 @@
+---
+title: "Final Assignment DDP"
+author: "Pietro Gazzi"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+## Slide 1: Introduction
+
+Welcome to the **Interactive Hypothesis Testing** app!  
+This app allows you to interact with hypothesis tests, including t-tests and z-tests.
+
+You can adjust parameters to see how the test statistic and p-value change, and make decisions based on the results.
+
+## Slide 2: Objective of the App
+
+The purpose of this app is to help users understand hypothesis testing by visually demonstrating:
+- How to set up test parameters (sample size, sample mean, etc.)
+- The calculation of the test statistic
+- The decision-making process based on the p-value
+
+
+## Slide 3: Interactivity and Features
+
+**Interactive Features**:
+- **Sliders** for setting sample size, sample mean, standard deviation, and significance level.
+- **Real-time calculation** of the test statistic (t or z) and p-value.
+- **Visual representation** of the test statistic on a normal distribution plot.
+
+
+
+## Slide 4: R Code for Test Statistic Calculation
+
+The test statistic (t or z) is computed using the formula:
+
+```
+test_stat <- (sample_mean - pop_mean) / (sample_sd / sqrt(sample_size))
+p_value <- 2 * (1 - pnorm(abs(test_stat)))
+```
+
+This code is executed when the sliders are adjusted to update the test statistic and p-value dynamically.
+
+## Conclusions
+
+This app helps users visualize the results of hypothesis testing in a simple and interactive way.
+It is useful for students, professionals, and anyone wanting to better understand hypothesis testing.
+
+Thank you for your attention!
